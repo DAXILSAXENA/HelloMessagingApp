@@ -7,6 +7,7 @@
 
 package com.bridgelabz.hellomessagingapp.controller;
 
+import com.bridgelabz.hellomessagingapp.dto.UserDTO;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -30,5 +31,11 @@ public class HelloMessageController {
     @GetMapping("/hello/{fname}/{lname}")
     public String helloName(@PathVariable("fname") String fname, @PathVariable("lname") String lname) {
         return "Hello " + fname +" " + lname;
+    }
+
+    // Using @RequestBody to pass JSON Object
+    @PostMapping("/post")
+    public UserDTO hello(@RequestBody UserDTO user) {
+        return user;
     }
 }
