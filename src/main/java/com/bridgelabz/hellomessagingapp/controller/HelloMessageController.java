@@ -25,4 +25,10 @@ public class HelloMessageController {
     public String hello(@RequestParam(value = "fname") String fname, @RequestParam(value = "lname") String lname) {
         return "Hello " + fname + " " + lname;
     }
+
+    // Using @pathVariable to pass variable in method
+    @GetMapping("/hello/{fname}/{lname}")
+    public String helloName(@PathVariable("fname") String fname, @PathVariable("lname") String lname) {
+        return "Hello " + fname +" " + lname;
+    }
 }
