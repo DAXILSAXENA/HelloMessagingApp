@@ -38,4 +38,11 @@ public class HelloMessageController {
     public UserDTO hello(@RequestBody UserDTO user) {
         return user;
     }
+
+    // PUT Request Method to pass first name as Path Variable and last name as Query Parameter
+    @PutMapping("/put/{firstName}")
+    public String sayHello(@PathVariable String firstName,
+                           @RequestParam(value = "lastName") String lastName) {
+        return "Hello " + firstName + " " + lastName + "!";
+    }
 }
